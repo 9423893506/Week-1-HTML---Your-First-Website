@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atharva Dagwar - Mechanical Engineering Student | Python Developer | AI Enthusiast">
+    <title>Atharva Dagwar - Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        main {
+            margin-top: 70px;
+        }
+        
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        h1, h2, h3 {
+            color: #667eea;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding-top: 6rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 2rem auto;
+            display: block;
+            border: 5px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .badge.secondary {
+            background: #10b981;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: #764ba2;
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        
+        /* Education Section */
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .education-card h3 {
+            color: #764ba2;
+            font-size: 1.4rem;
+        }
+        
+        .education-details {
+            color: #666;
+            margin: 0.5rem 0;
+        }
+        
+        .coursework {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .coursework strong {
+            color: #667eea;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-category li::before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* Certifications Section */
+        .cert-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .cert-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .cert-card h3 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cert-issuer {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cert-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .cert-card li {
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .cert-card li::before {
+            content: "• ";
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+        
+        .project-status {
+            display: inline-block;
+            background: #fbbf24;
+            color: #78350f;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Experience Section */
+        .experience-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 5px solid #667eea;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .experience-title {
+            color: #764ba2;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .experience-company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .experience-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .experience-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .experience-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .experience-card li::before {
+            content: "▸";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .achievement-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .achievement-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-item h4 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact Section */
+        #contact {
+            max-width: 600px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .social-links a:hover {
+            color: #667eea;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            h1, .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Atharva Dagwar</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <img src="https://ui-avatars.com/api/?name=Atharva+Dagwar&size=200&background=667eea&color=fff&bold=true&font-size=0.4" 
+                     alt="Profile picture of Atharva Haribhau Dagwar" 
+                     class="profile-img">
+                
+                <h1 class="hero-title">Atharva Dagwar</h1>
+                <p class="hero-subtitle">Mechanical Engineering Student | Python Developer | AI Enthusiast</p>
+                
+                <div class="badges">
+                    <span class="badge">🎓 3rd Year Student</span>
+                    <span class="badge secondary">🐍 Cisco Certified Python Developer</span>
+                    <span class="badge">🤖 AI Intern @ CodSoft</span>
+                </div>
+                
+                <div class="contact-info">
+                    <span>📧 <a href="mailto:atharvadagwar94@gmail.com">atharvadagwar94@gmail.com</a></span>
+                    <span>📱 <a href="tel:+919423893506">+91 9423893506</a></span>
+                    <span>📍 Pune, India 411041</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    Hello! I'm <span class="highlight">Atharva Haribhau Dagwar</span>, a passionate 
+                    3rd-year Mechanical Engineering student at Sinhgad College of Engineering, Pune, 
+                    with a strong focus on software development and artificial intelligence.
+                </p>
+                <p>
+                    I am a <strong>Cisco-certified Python developer</strong> with hands-on experience 
+                    in data management and software development. My unique blend of mechanical engineering 
+                    background and programming expertise allows me to approach problems with a systematic, 
+                    analytical mindset while building practical technological solutions.
+                </p>
+                <p>
+                    Currently, I'm gaining valuable industry experience as an <strong>AI Intern at CodSoft</strong> 
+                    (January - February 2026), where I'm working on cutting-edge artificial intelligence projects. 
+                    Simultaneously, I work as a Data Entry Operator at Yes, Pune, where I've maintained a 
+                    99%+ accuracy rate and automated repetitive tasks using Python scripts.
+                </p>
+                <p>
+                    I'm passionate about <strong>software development, data science, automation, and open source</strong>. 
+                    I actively solve problems on LeetCode and contribute to projects on GitHub. My goal is to leverage 
+                    technology to create innovative solutions that make a real-world impact.
+                </p>
+                <p>
+                    <strong>Languages:</strong> English, Hindi, Marathi<br>
+                    <strong>Key Strengths:</strong> Problem-solving | Attention to detail | Quick learner | Self-motivated
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-card">
+                <h3>Bachelor of Science in Mechanical Engineering</h3>
+                <p class="education-details">
+                    <strong>Sinhgad College of Engineering, Narhe Pune</strong><br>
+                    2022 - Present (3rd Year)
+                </p>
+                <div class="coursework">
+                    <strong>Relevant Coursework:</strong><br>
+                    Computer Programming (C/C++), Engineering Mathematics, Data Structures & Algorithms
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <article class="skill-category">
+                    <h3>🐍 Programming</h3>
+                    <ul>
+                        <li>Python 3 (Cisco Certified)</li>
+                        <li>Data Structures</li>
+                        <li>Object-Oriented Programming</li>
+                        <li>Error Handling</li>
+                        <li>File Operations</li>
+                        <li>Debugging & Testing</li>
+                        <li>C/C++ (Basics)</li>
+                    </ul>
+                </article>
+
+                <article class="skill-category">
+                    <h3>🌐 Web Development</h3>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript (Learning)</li>
+                        <li>Flask (Basic)</li>
+                        <li>Django (Basic)</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </article>
+
+                <article class="skill-category">
+                    <h3>🛠️ Tools & Technologies</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>MS Excel (Advanced)</li>
+                        <li>SQL (Basics)</li>
+                        <li>Jupyter Notebook</li>
+                        <li>Command Line</li>
+                    </ul>
+                </article>
+
+                <article class="skill-category">
+                    <h3>💡 Problem Solving</h3>
+                    <ul>
+                        <li>Algorithmic Thinking</li>
+                        <li>Software Debugging</li>
+                        <li>Process Optimization</li>
+                        <li>Data Analysis</li>
+                        <li>Code Refactoring</li>
+                        <li>Quality Assurance</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="cert-container">
+                <article class="cert-card">
+                    <h3>Python Essentials 1</h3>
+                    <p class="cert-issuer">Cisco Networking Academy | OpenEDG Python Institute</p>
+                    <p><strong>Issued:</strong> January 2026</p>
+                    <p><strong>Verified by:</strong> Cisco Networking Academy</p>
+                    <ul>
+                        <li>Completed comprehensive Python programming course</li>
+                        <li>Mastered program design, debugging, and refactoring</li>
+                        <li>Python 3 syntax, semantics, and Standard Library</li>
+                        <li>Understanding of software development lifecycle</li>
+                        <li>Algorithmic thinking and problem-solving</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                Building portfolio projects to showcase Python skills. Projects will be uploaded to 
+                <a href="https://github.com/atharvadagwar" target="_blank" style="color: #667eea;">GitHub</a> shortly.
+            </p>
+            <div class="projects-container">
+                <article class="project-card">
+                    <h3>🤖 Data Automation Tool</h3>
+                    <span class="project-status">In Development</span>
+                    <p>
+                        Python-based data processing and analysis application designed to automate 
+                        repetitive data tasks, improve accuracy, and streamline workflow processes.
+                    </p>
+                    <p style="margin-top: 1rem;"><strong>Technologies:</strong> Python, Pandas, NumPy</p>
+                </article>
+
+                <article class="project-card">
+                    <h3>🌤️ Weather Application</h3>
+                    <span class="project-status">In Development</span>
+                    <p>
+                        A weather forecasting application featuring API integration and JSON data handling 
+                        to provide real-time weather information and forecasts.
+                    </p>
+                    <p style="margin-top: 1rem;"><strong>Technologies:</strong> Python, REST APIs, JSON</p>
+                </article>
+
+                <article class="project-card">
+                    <h3>💼 Personal Portfolio Website</h3>
+                    <span class="project-status">In Development</span>
+                    <p>
+                        A professional portfolio website to showcase projects, skills, and experience 
+                        with modern web technologies and responsive design.
+                    </p>
+                    <p style="margin-top: 1rem;"><strong>Technologies:</strong> HTML5, CSS3, JavaScript</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-container">
+                <article class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Artificial Intelligence Intern</div>
+                            <div class="experience-company">CodSoft (MSME Registered, ISO 9001:2015 Certified)</div>
+                        </div>
+                        <div class="experience-date">January 2026 - February 2026</div>
+                    </div>
+                    <p><strong>Internship ID:</strong> BY25RY261138</p>
+                    <ul>
+                        <li>Working on cutting-edge AI and machine learning projects</li>
+                        <li>Gaining hands-on experience with artificial intelligence technologies</li>
+                        <li>Learning and developing new skills in AI/ML domain</li>
+                        <li>Applying theoretical knowledge to practical AI applications</li>
+                        <li>Collaborating with team on educational AI initiatives</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Data Entry Operator</div>
+                            <div class="experience-company">Yes, Pune</div>
+                        </div>
+                        <div class="experience-date">June 2024 - Present</div>
+                    </div>
+                    <ul>
+                        <li>Process and manage large datasets with 99%+ accuracy, handling high-volume operations</li>
+                        <li>Maintain database integrity and implement quality control measures</li>
+                        <li>Developed systematic approach to data verification and error correction</li>
+                        <li>Automated repetitive tasks using Python scripts, improving efficiency</li>
+                        <li>Handle confidential information with professionalism and discretion</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" style="background-color: #f8f9fa;">
+            <h2>Achievements & Profiles</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <div class="achievement-icon">🏆</div>
+                    <h4>Cisco Certified</h4>
+                    <p>Python Essentials 1<br>January 2026</p>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">📊</div>
+                    <h4>Data Accuracy</h4>
+                    <p>99%+ Accuracy Rate<br>Professional Work</p>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">💻</div>
+                    <h4>GitHub</h4>
+                    <p><a href="https://github.com/atharvadagwar" target="_blank" style="color: #667eea;">@atharvadagwar</a><br>Active Developer</p>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">🧩</div>
+                    <h4>LeetCode</h4>
+                    <p><a href="https://leetcode.com/atharvadagwar" target="_blank" style="color: #667eea;">@atharvadagwar</a><br>Active Problem Solver</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                I'm actively seeking software development internships and open to collaborating on 
+                exciting projects. Feel free to reach out!
+            </p>
+            <p style="text-align: center; margin-bottom: 2rem;">
+                <strong>Availability:</strong> <span style="color: #10b981;">Immediate (Flexible for internship schedules)</span>
+            </p>
+            <form class="contact-form" action="#" method="POST" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your name"
+                        required 
+                        minlength="2"
+                        maxlength="50"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input 
+                        type="text" 
+                        id="subject" 
+                        name="subject" 
+                        placeholder="Internship Opportunity / Project Collaboration / General Inquiry"
+                        required
+                        minlength="3"
+                        maxlength="100"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        placeholder="Tell me about the opportunity or project..."
+                        required
+                        minlength="10"
+                        maxlength="1000"
+                    ></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Atharva Haribhau Dagwar</strong></p>
+            <p>Mechanical Engineering Student | Python Developer | AI Enthusiast</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">AI Intern @ CodSoft | Data Entry Operator @ Yes, Pune</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/atharvadagwar" target="_blank" rel="noopener noreferrer">
+                    <span>🔗</span> GitHub
+                </a>
+                <a href="https://linkedin.com/in/atharvadagwar" target="_blank" rel="noopener noreferrer">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="https://leetcode.com/atharvadagwar" target="_blank" rel="noopener noreferrer">
+                    <span>🧩</span> LeetCode
+                </a>
+                <a href="mailto:atharvadagwar94@gmail.com">
+                    <span>📧</span> Email
+                </a>
+                <a href="tel:+919423893506">
+                    <span>📱</span> +91 9423893506
+                </a>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem;">&copy; 2026 Atharva Dagwar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for form handling and smooth scrolling -->
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            console.log('Form submitted:', formData);
+            
+            // In a real implementation, you would send this to a backend service
+            alert('Thank you for your message! I will get back to you as soon as possible.\n\nYou can also reach me directly at:\natharvadagwar94@gmail.com\n+91 9423893506');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
